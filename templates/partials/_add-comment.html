@@ -1,0 +1,24 @@
+<p class="d-inline-flex gap-1">
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Yorum Yap
+    </button>
+</p>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+        <form action="/news/comment/add" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="news_slug" value="{{ new.slug }}">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Kullanıcı Adı</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Kulanici Adi" name="username">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Yorum</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content"></textarea>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Yorum Yap</button>
+            </div>
+        </form>
+    </div>
+</div>

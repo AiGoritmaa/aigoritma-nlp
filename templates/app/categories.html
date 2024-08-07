@@ -1,0 +1,41 @@
+{% extends "../partials/layout.html" %}
+
+{% load static %}
+
+{% block head %}
+<title>Haber Sitesi</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="{% static "css/style.css" %}" rel="stylesheet">
+<style>
+    .news-item { margin-bottom: 20px; }
+</style>
+{% endblock %}
+
+{% block content %}
+
+{% include "partials/_navbar.html" %}
+
+<div class="container mt-4">
+    <div class="row">
+        {% for category in categories %}
+        <div class="col-md-4">
+            <div class="card m-2">
+                <div class="card-body">
+                  <h5 class="card-title">{{ category.name }}</h5>
+                  <p class="card-text">{{ category.name }} ile ilgili haberlere gitmek icin butona tikla</p>
+                  <a href="/news/category/{{ category.slug }}" class="btn btn-primary">Git</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}
+

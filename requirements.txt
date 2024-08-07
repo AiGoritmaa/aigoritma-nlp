@@ -1,0 +1,10 @@
+asgiref==3.8.1
+click==8.1.7
+colorama==0.4.6
+Django==5.0.8
+joblib==1.4.2
+nltk==3.8.1
+regex==2024.7.24
+sqlparse==0.5.1
+tqdm==4.66.5
+tzdata==2024.1

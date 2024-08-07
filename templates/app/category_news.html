@@ -1,0 +1,61 @@
+{% extends "../partials/layout.html" %}
+
+{% load static %}
+
+{% block head %}
+<title>Haber Sitesi</title>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="{% static "css/style.css" %}" rel="stylesheet">
+<style>
+    .news-item { margin-bottom: 20px; }
+</style>
+{% endblock %}
+
+{% block content %}
+
+{% include "partials/_navbar.html" %}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <h2 class='mb-3'>Haberler</h2>
+            <div class="news-item">
+                {% if page_obj %}
+                    {% for new in page_obj %}
+                    <div class="card mb-3" style="">
+                        <img src="https://picsum.photos/200/50" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ new.title }}</h5>
+                            <p class="card-text">{{ new.alt_content }}</p>
+                            <a href="/news/{{ new.slug }}" class="btn btn-primary">Habere Git</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="alert alert-warning">
+                        Haber Bulunamadi.
+                    </div>
+                {% endif %}
+            </div>
+            <!-- Daha fazla haberler -->
+        </div>
+        <div class="col-md-4">
+            <h2>Kategoriler</h2>
+            <div class="list-group">
+                <a href="/" class="list-group-item list-group-item-action {% if selected_category == none %}active{% endif %}" >Bütün Kategoriler</a>
+                {% for category in categories %}
+                    <a href="/news/category/{{ category.slug }}" class="list-group-item list-group-item-action {% if category.id == selected_category %}active{% endif %}" >{{category.name}}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% include "../partials/_pagination.html" %}
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}
+
