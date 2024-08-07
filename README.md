@@ -1,8 +1,23 @@
-# Nasıl Çalıştırlır?
+# Nasıl Çalıştırlır ve İndirilir?
 
-pip install -r requirements.txt
-gerekli kütüphanelerin indirilmesi
-
-python manage.py runserver
-uygulamanın çalıştırılması
+```bash
+  git clone https://github.com/AiGoritmaa/aigoritma-nlp
+```
+projenin indirilmesi
+```bash
+  cd aigoritma-nlp
+```
+projenin olduğu dizine gidilmesi
+```bash
+  pip install -r requirement.txt
+```
+gerekli kütüphanelerin indirimesi
+```bash
+  python manage.py runserver
+```
+projenin çalıştırılması
+```bash
+  http://127.0.0.1:8000/
+```
+bu url ile siteye giriş yapabilirsiniz
  
