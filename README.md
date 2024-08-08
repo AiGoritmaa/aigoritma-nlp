@@ -22,9 +22,9 @@ projenin çalıştırılması
 bu url ile siteye giriş yapabilirsiniz
 
  # Kullanılan Veri Seti
- -Projede nltk kütüphanesinin stopwords veri seti kullanılmıştır. 
+ - Projede nltk kütüphanesinin stopwords veri seti kullanılmıştır. 
  
- -stopwords veri seti nltk kütüphanenin yükselenmesiyle kendi içinde bulunmaktadır. Bu veri seti kendi içinde türkçe durak kelimelerini bulundurmaktadır.
+ - stopwords veri seti nltk kütüphanenin yükselenmesiyle kendi içinde bulunmaktadır. Bu veri seti kendi içinde türkçe durak kelimelerini bulundurmaktadır.
 
  # Ek Olarak
 - Projenin içinde olan haber içerikleri haber.com sitesinden güncel haberler olarak alınmıştır.
