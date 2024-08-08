@@ -22,10 +22,9 @@ projenin çalıştırılması
 bu url ile siteye giriş yapabilirsiniz
 
  # Kullanılan Veri Seti
- -nltk kütüphanesinin stopwords ve açık kaynak olarak kullandığımız argo kelimeleri barındıran veri setlerini kullanmaktayız. 
+ -Projede nltk kütüphanesinin stopwords veri seti kullanılmıştır. 
  
  -stopwords veri seti nltk kütüphanenin yükselenmesiyle kendi içinde bulunmaktadır. Bu veri seti kendi içinde türkçe durak kelimelerini bulundurmaktadır.
- 
- -Argo kelimelerin olduğu veri setimiz ise projenin ana dizinde json dosyası olarak bulunmaktadır.
- 
- -argo kelimeler veri setinin kaynağı: https://github.com/ooguz/turkce-kufur-karaliste
+
+ # Ek Olarak
+- Projenin içinde olan haber içerikleri haber.com sitesinden güncel haberler olarak alınmıştır.
