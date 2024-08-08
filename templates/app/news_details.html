@@ -28,11 +28,16 @@
                 {% else %}
                 <p class="card-text">{{ new.content }}</p>
                 {% endif %}
-                
-                {% include "../partials/_add-comment.html" %}
+                {% comment %} {% if argo == "1" %}
+                asdas
+                    <div class="alert alert-danger" role="alert">
+                        Yorumunuzda argo kelime bulunmaktadır!
+                    </div>
+                {% endif %}     
+                {% include "../partials/_add-comment.html" %} {% endcomment %}
             </div>
         </div>
-        <div class="card" style="">
+        {% comment %} <div class="card" style="">
             <div class="card-body">
                 <h4>Yorumlar</h4>
                 {% for comment in comments %}
@@ -45,7 +50,7 @@
                 </div>
                 {% endfor %}
             </div>
-        </div>
+        </div> {% endcomment %}
     </div>
 </div>
 {% endblock %}
