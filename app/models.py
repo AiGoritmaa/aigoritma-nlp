@@ -27,7 +27,7 @@ class News(models.Model):
     alt_content = models.TextField(null=True)
     content = models.TextField(null=True)
     category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, null=True, blank=True, related_name='newss')
-    slug = models.SlugField(default="", null=False, blank=True)
+    slug = models.SlugField(default="", null=False, blank=True, max_length=255)
 
     def save(self, *args, **kargs):
         self.slug = slugify(self.title)

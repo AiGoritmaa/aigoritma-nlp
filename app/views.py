@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.core.paginator import Paginator
-from app.models import Category, News, Visitor
+from .models import Category, News, Visitor
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, sent_tokenize
@@ -21,7 +21,7 @@ def index(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     if(visitor.visited_categories["categories"]):
-        if(len(visitor.visited_categories["categories"])==10):
+        if(len(visitor.visited_categories["categories"]) >= 10):
             selected_category = en_cok_tercih_edilen_kategori(visitor.visited_categories["categories"])
             visitor.visited_categories["categories"] = []
             visitor.visited_categories["categories"].append(selected_category)
