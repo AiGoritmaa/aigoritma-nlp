@@ -1,4 +1,4 @@
-# Nasıl Çalıştırlır ve İndirilir?
+# Nasıl İndirilir ve Çalıştırlır?
 
 ```bash
   git clone https://github.com/AiGoritmaa/aigoritma-nlp
