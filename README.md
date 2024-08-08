@@ -18,7 +18,7 @@ gerekli kütüphanelerin indirimesi
 projenin çalıştırılması
 ```bash
   http://127.0.0.1:8000/
-```s
+```
 bu url ile siteye giriş yapabilirsiniz
 
  # Kullanılan Veri Seti
