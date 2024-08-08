@@ -18,6 +18,9 @@ gerekli kütüphanelerin indirimesi
 projenin çalıştırılması
 ```bash
   http://127.0.0.1:8000/
-```
+```s
 bu url ile siteye giriş yapabilirsiniz
- 
+
+ # Kullanılan Veri Seti
+ nltk kütüphanesinin stopwords ve açık kaynak olarak kullandığımız argo kelimeleri barındıran veri setlerini kullanmaktayız. 
+ stopwords veri seti kütüphanenin yükselenmesiyle 
