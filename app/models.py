@@ -35,11 +35,3 @@ class News(models.Model):
     
     def __str__(self) -> str:
         return f"{self.category}"
-    
-class Comment(models.Model):
-    visitor = models.ForeignKey(Visitor, on_delete=models.CASCADE, related_name="comments")
-    news = models.ForeignKey(News, on_delete=models.CASCADE, related_name="comments")
-    content = models.TextField()
-    username = models.CharField(max_length=255, blank=True, null=True)
-    timestamp = models.DateTimeField(auto_now_add=True)
-    

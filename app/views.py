@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.core.paginator import Paginator
-from app.models import Category, Comment, News, Visitor
+from app.models import Category, News, Visitor
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize, sent_tokenize
@@ -11,9 +11,6 @@ import os
 import json
 
 
-comment_username = ""
-comment_content = ""
-argo_durumu = 0
 # Create your views here.
 def index(request):
     select_news = ""
@@ -40,15 +37,9 @@ def categories(request):
 def news_details(request, slug):
     visitor = Visitor.objects.get(session_key=request.session.session_key)
     news = News.objects.get(slug=slug)
-    # comments = news.comments.all()
     visitor.visited_categories["categories"].append(news.category.id)
     visitor.save()
-    argo = request.GET.get("argo")
-    print(argo)
-    # if(argo=="1"):
-    #     print("argo bulunud")
-    #     return render(request, "app/news_details.html", {"new":news, "comments":comments, "argo":argo,"comment_username":request.GET.get("username"), "comment_content":request.GET.get("content")})
-    return render(request, "app/news_details.html", {"new":news, "argo":argo})
+    return render(request, "app/news_details.html", {"new":news})
 
 def news_content_summary(request, slug):
     nltk.download('punkt')
@@ -72,18 +63,6 @@ def news_filter_category(request, slug):
     page_obj = paginator.get_page(page_number)
     
     return render(request, "app/category_news.html", { "categories":categories, "selected_category":selected_category, "page_obj":page_obj})
-
-# def add_comment(request):
-#     if request.method == "POST":
-#         visitor = Visitor.objects.get(session_key=request.session.session_key)
-#         news = News.objects.get(slug=request.POST["news_slug"])
-#         argo_kelimeler = argo_kelimeleri_yukle("argo_kelimeler_veri_seti.json")
-#         tespit_edilenler = argo_kelime_tespiti(request.POST["content"], argo_kelimeler)
-#         if tespit_edilenler == []:
-#             comment = Comment.objects.create(username=request.POST["username"], content=request.POST["content"],news=news,visitor=visitor)
-#             comment.save()
-#             return HttpResponseRedirect("/news/" + request.POST["news_slug"])
-#         return HttpResponseRedirect("/news/" + request.POST["news_slug"] + "?argo=1" + "&content="+ request.POST["content"] + "&username=" + request.POST["username"] )
 
 def summarize(text, n=3):
     # Metni cümlelere bölme
@@ -122,14 +101,3 @@ def en_cok_tercih_edilen_kategori(etkinlikler):
     en_cok_tercih_edilen = kategori_sayaci.most_common(1)
     
     return en_cok_tercih_edilen[0][0] if en_cok_tercih_edilen else None
-
-# def argo_kelimeleri_yukle(dosya_adi):
-#     with open(os.path.dirname(os.path.realpath(__name__))+"\\"+dosya_adi, 'r', encoding='utf-8') as dosya:
-#         veriler = json.load(dosya)
-#     return veriler['argo_kelimeler']
-
-# # Verilen metinde argo kelimeleri tespit et
-# def argo_kelime_tespiti(metin, argo_kelimeler):
-#     kelimeler = word_tokenize(metin.lower())
-#     tespit_edilenler = [kelime for kelime in kelimeler if kelime in argo_kelimeler]
-#     return tespit_edilenler
