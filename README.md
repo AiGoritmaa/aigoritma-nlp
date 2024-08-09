@@ -26,5 +26,6 @@ bu url ile siteye giriş yapabilirsiniz
  
  - stopwords veri seti nltk kütüphanenin yükselenmesiyle kendi içinde bulunmaktadır. Bu veri seti kendi içinde türkçe durak kelimelerini bulundurmaktadır.
 
+- uygulama içinde nltk.download("stopwrods") kodu ile veri seti yüklenmektedir.
  # Ek Olarak
 - Projenin içinde olan haber içerikleri haber.com sitesinden güncel haberler olarak alınmıştır.
