@@ -1,3 +1,6 @@
+# Proje Hakkında
+Bu proje Teknofest TDDİ yarışması serbest kategori metin özetleme konusu için yapılmışıtr
+Proje Django tabanlı web uygulaması olup Doğal Dil İşleme teknikleri ve metin özetleme algoritması ile haber içeriklerinin özetlenmesini yapmaktadır.
 # Nasıl İndirilir ve Çalıştırlır?
 
 ```bash
